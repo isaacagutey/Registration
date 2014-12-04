@@ -1,0 +1,23 @@
+<div id="login">
+    <h1>Login</h1>
+
+    <div>
+      <% if flash[:status] == FALSE %>
+          <p><%= flash[:alert]%></p>
+      <%end%>
+    </div>
+
+    <%= form_for(:session, :url => sessions_path) do |f| %>
+        <div>
+          <%= f.text_field :name, :placeholder => "Name" %>
+        </div>
+      <br>
+        <div>
+          <%= f.password_field :password, :placeholder => "Password"%>
+        </div>
+      <br>
+        <div>
+          <%= f.submit "Login" %>  <h3><%= link_to "Sign Up", register_path, :class =>  "link"%></h3>
+        </div>
+    <% end %>
+</div>
